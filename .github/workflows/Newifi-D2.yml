@@ -20,8 +20,10 @@ on:
       - 'devices/Newifi-D2/.config'
 
 env:
-  REPO_URL: https://github.com/solomonricky/openwrt
-  REPO_BRANCH: iptables-master
+  # REPO_URL: https://github.com/solomonricky/openwrt
+  # REPO_BRANCH: iptables-master
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: 22.03
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: devices/Newifi-D2/.config
   DIY_P1_SH: devices/Newifi-D2/diy-part1.sh
@@ -47,7 +49,8 @@ jobs:
         sudo -E apt-mark hold grub-efi-amd64-signed
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq upgrade
+        # sudo -E apt-get -qq full-upgrade
+        # sudo -E apt-get -qq upgrade
         sudo -E apt-get -qq install build-essential ccache ecj fastjar file g++ gawk gettext git java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget python-distutils-extra python3-setuptools python3-dev rsync subversion swig time xsltproc zlib1g-dev zip 
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         sudo -E apt-get -qq autoremove --purge
